@@ -1,18 +1,11 @@
-import Abitur2017.Abitur2017;
-import Abitur2022.Abitur2022;
-
-import java.awt.*;
-import java.util.*;
-import java.util.stream.IntStream;
+import Abitur2021.Abitur2021;
 
 public class Main {
 
-    static Random random = new Random();
 
     public static void main(String[] args) {
-        new Abitur2022().Aufgabe2("jakob jakob ");
+        System.out.println(new Abitur2021().getNumber());
     }
-
 
 
 }
