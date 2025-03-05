@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="Paket">
+  <ClassDiagramComponents>
+    <Class name="BordComputer" package="" visibility="public" xPosition="234.0" yPosition="280.0">
+      <Fields>
+        <Field name="alleFahrzeugeGPS" type="ArrayList&lt;double[]&gt;" visibility="package"/>
+        <Field name="fahrZeuge" type="ArrayList&lt;Fahrzeug&gt;" visibility="package"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="tourBestaetigt" returnType="void" visibility="public">
+          <Argument type="Fahrzeug" name="fahrzeug"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Fahrer" package="" visibility="public" xPosition="320.0" yPosition="20.0">
+      <Fields>
+        <Field name="vorname" type="String" visibility="package"/>
+        <Field name="name" type="String" visibility="package"/>
+        <Field name="personalNummer" type="String" visibility="package"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Paket" package="" visibility="public" xPosition="587.0" yPosition="280.0">
+      <Fields>
+        <Field name="volumen" type="int" visibility="package"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Main" package="" visibility="public" xPosition="758.0" yPosition="133.0">
+      <Fields>
+        <Field name="fahrerList" type="ArrayList&lt;Fahrer&gt;" visibility="package"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+        <Method name="addFahrer" returnType="void" visibility="public" isStatic="true">
+          <Argument type="Fahrer" name="fahrer"/>
+        </Method>
+        <Method name="delFahrer" returnType="void" visibility="public" isStatic="true">
+          <Argument type="Fahrer" name="fahrer"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Fahrzeug" package="" visibility="public" xPosition="283.0" yPosition="521.0">
+      <Fields>
+        <Field name="gps" type="double[]" visibility="package"/>
+        <Field name="kennzeichen" type="String" visibility="package"/>
+        <Field name="ladeKapazitaet" type="int" visibility="package"/>
+        <Field name="touren" type="ArrayList&lt;Tour&gt;" visibility="package"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="laden" returnType="void" visibility="public"/>
+        <Method name="entladen" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Tour" package="" visibility="public" xPosition="779.0" yPosition="593.0">
+      <Fields>
+        <Field name="tour" type="ArrayList&lt;PaketStation&gt;" visibility="package"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="PaketStation" package="" visibility="public" xPosition="722.0" yPosition="422.0">
+      <Fields>
+        <Field name="nummer" type="int" visibility="package"/>
+        <Field name="pakets" type="HashMap&lt;Fahrzeug, ArrayList&lt;Paket&gt;&gt;" visibility="package"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="pakets" source="PaketStation" target="Fahrzeug" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="HashMap&lt;Fahrzeug, ArrayList&lt;Paket&gt;&gt;"/>
+    <UseRelation source="Main" target="Fahrer" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="fahrerList" source="Main" target="Fahrer" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Fahrer&gt;"/>
+    <UseRelation source="BordComputer" target="Fahrzeug" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="fahrZeuge" source="BordComputer" target="Fahrzeug" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Fahrzeug&gt;"/>
+    <HasRelation name="tour" source="Tour" target="PaketStation" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;PaketStation&gt;"/>
+    <HasRelation name="touren" source="Fahrzeug" target="Tour" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Tour&gt;"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
